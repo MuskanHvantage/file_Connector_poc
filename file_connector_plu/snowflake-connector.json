@@ -1,0 +1,20 @@
+{
+    "name": "connect-file-pulse-zip-source",
+    "config": {
+      "connector.class": "io.streamthoughts.kafka.connect.filepulse.source.FilePulseSourceConnector",
+      "fs.cleanup.policy.class": "io.streamthoughts.kafka.connect.filepulse.clean.LogCleanupPolicy",
+      "fs.scanner.class": "io.streamthoughts.kafka.connect.filepulse.scanner.local.LocalFSDirectoryWalker",
+      "fs.scan.directory.path": "/path/to/your/input/directory",
+      "fs.scan.filters": "io.streamthoughts.kafka.connect.filepulse.scanner.local.filter.RegexFileListFilter",
+      "file.filter.regex.pattern": ".*\\.zip$",
+      "fs.scan.interval.ms": "10000",
+      "internal.kafka.reporter.bootstrap.servers": "localhost:9092",
+      "internal.kafka.reporter.id": "connect-file-pulse-zip-source",
+      "internal.kafka.reporter.topic": "connect-file-pulse-status",
+      "offset.strategy": "name",
+      "read.max.wait.ms": "5000",
+      "task.reader.class": "io.streamthoughts.kafka.connect.filepulse.reader.ArchiveFileInputReader",
+      "topic": "your-kafka-topic"
+    }
+  }
+    
